@@ -54,7 +54,7 @@ export default function BudgetCard({
           <Stack direction="horizontal" gap="2" className="mt-4">
             <Button
               variant="outline-primary"
-              className="ms-auto"
+              className="ms-auto "
               onClick={onAddExpenseClick}
             >
               Add Expense

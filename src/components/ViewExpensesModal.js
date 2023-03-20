@@ -21,7 +21,7 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
       <Modal.Header>
         <Modal.Title>
           <Stack direction="horizontal" gap="2">
-            <div>Expense- {budget?.name}</div>
+            <div>Expenses- {budget?.name}</div>
             {budgetId !== UNCATEGORIZED_BUDGET_ID && (
               <Button
                 onClick={() => {
@@ -37,7 +37,7 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Stack direction="vertical" gap="2">
+        <Stack direction="vertical" gap="3">
           {expenses.map((expense) => (
             <Stack direction="horizontal" gap="2" key={expense.id}>
               <div className="me-auto fs-4">{expense.description}</div>
@@ -49,7 +49,7 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
                 size="sm"
                 variant="outline-danger"
               >
-                &times:
+                &times;
               </Button>
             </Stack>
           ))}

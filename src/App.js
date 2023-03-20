@@ -8,6 +8,11 @@ import TotalBudgetCard from "./components/TotalBudgetCard";
 import UncategorizedBudgetCard from "./components/UncategorizedBudgetCard";
 import ViewExpensesModal from "./components/ViewExpensesModal";
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "./contexts/BudgetsContext";
+import {
+  ThemeProvider,
+  useTheme,
+  useThemeUpdate,
+} from "./contexts/ThemeContext";
 
 function App() {
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false);
@@ -21,11 +26,33 @@ function App() {
     setShowAddExpenseModal(true);
     setAddExpenseModalBudgetId(budgetId);
   }
+  const darkTheme = useTheme();
+  const toggleTheme = useThemeUpdate();
+  const themeStyles = {
+    backgroundColor: darkTheme ? "#bebcc2" : "#eee",
+    color: darkTheme ? "#000" : "#333",
+    padding: "2rem",
+    margin: "2rem",
+  };
+  const heading = {
+    color: "#01579B",
+    lineHeight: "40px",
+    fontFamily: "cursive",
+  };
+
   return (
     <>
-      <Container className="my-4">
+      <Container className="mx-auto" style={themeStyles}>
+        {darkTheme ? (
+          <i onClick={toggleTheme} className="fas fa-toggle-on"></i>
+        ) : (
+          <i onClick={toggleTheme} className="fas fa-toggle-off"></i>
+        )}
+
         <Stack direction="horizontal" gap="2" className="mb-4">
-          <h1 className="me-auto">Budgets</h1>
+          <h1 className="me-auto fw-bold" style={heading}>
+            Budget App
+          </h1>
           <Button variant="primary" onClick={() => setShowAddBudgetModal(true)}>
             Add Budget
           </Button>
@@ -36,7 +63,7 @@ function App() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill,minmax(300p 1fr))",
+            gridTemplateColumns: "repeat(auto-fill,minmax(300px ,1fr))",
             gap: "1rem",
             alignItems: "flex-start",
           }}

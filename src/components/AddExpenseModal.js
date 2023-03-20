@@ -13,11 +13,11 @@ export default function AddExpenseModal({
   const descriptionRef = useRef();
   const amountRef = useRef();
   const budgetIdRef = useRef();
-  const { addBudget, budgets } = useBudgets();
+  const { addExpense, budgets } = useBudgets();
 
   function handleSubmit(e) {
     e.preventDefault();
-    addBudget({
+    addExpense({
       description: descriptionRef.current.value,
       amount: parseFloat(amountRef.current.value),
       budgetId: budgetIdRef.current.value,
