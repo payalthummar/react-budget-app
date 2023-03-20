@@ -31,4 +31,5 @@ The app should now be running on [http://localhost:3000](http://localhost:3000).
 - View Expenses
 - Delete Expenses
 - View the total Expenses and if the Expenses exceeds the budget, the color of the card changes
-- See the progressbar according to the amount
+- See the progressbar according to the max amount and if the amount exceeds, the color of the progressbar changes
+- Change the background color using the toggle button
